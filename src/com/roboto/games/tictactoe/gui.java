@@ -34,11 +34,10 @@ public class gui extends JDialog {
         if(playerTurn == 1) playerLabel.setText("Player: O");
     }
     public gui() {
-        if(playerTurn == 0) playerLabel.setText("Player: X");
-        if(playerTurn == 1) playerLabel.setText("Player: O");
         setContentPane(contentPane);
-        sendToTable(gameData);
         setModal(true);
+        DefaultTableModel tableModel = new DefaultTableModel(gameData,titles);
+        table1.setModel(tableModel);
         contentPane.registerKeyboardAction(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCancel();
